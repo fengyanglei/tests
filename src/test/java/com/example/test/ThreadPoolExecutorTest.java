@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
+/**
+ * 线程池
+ */
 @SpringBootTest
 public class ThreadPoolExecutorTest {
 
