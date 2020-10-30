@@ -1,0 +1,348 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>纯css实导航hover效果-jq22.com</title>
+<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+/* 初始化页面 */
+html,body,div,span,object,,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+li,ul,ol {
+	list-style:none;
+}
+.top50 {
+	margin-top:50px !important;
+}
+/* 还原效果
+ --------------------------------------------------*/
+.nav01 {
+	width:100%;
+	height:60px;
+	background:#333;
+}
+.nav01 ul {
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+}
+.nav01 ul li {
+	position:relative;
+	/* 重点 */
+	width:250px;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	/* transition:color .5s;
+	*/
+}
+.nav01 ul li::before {
+	content:"";
+	position:absolute;
+	/* 重点 */
+	left:0;
+	/* 重点 */
+	bottom:0;
+	/* 重点 */
+	width:0;
+	/* 重点 */
+	height:2px;
+	background:#FFE300;
+	transition:width .5s;
+}
+.nav01 ul li:hover::before {
+	width:250px;
+}
+/* 线条运动
+ --------------------------------------------------*/
+.nav02 {
+	width:100%;
+	height:60px;
+	background:#333;
+}
+.nav02 ul {
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+}
+.nav02 ul li {
+	position:relative;
+	width:250px;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+}
+.nav02 ul li::before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:250px;
+	/* 重点 */
+	height:2px;
+	background:#FFE300;
+	transform:scaleX(0);
+	/* 重点 */
+	transition:all .5s;
+	/* 重点 */
+}
+.nav02 ul li:hover::before {
+	transform:scaleX(1);
+	/* 重点 */
+}
+/* 线条运动方向
+ --------------------------------------------------*/
+ .nav03 {
+	width:1200px;
+	margin:0 auto;
+}
+.nav03 ul {
+	width:300px;
+}
+.nav03 ul li {
+	position:relative;
+	width:100%;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#333;
+	cursor:pointer;
+}
+.nav03 ul li::before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:300px;
+	/* 重点 */
+ 	height:2px;
+	background:#FFE300;
+	transition:transform .5s;
+	/* 重点 */
+ 	transform:scaleX(0);
+	/* 重点 */
+	transform-origin:100% 0;
+	/* 重点 */
+}
+.nav03 ul li:hover::before {
+	transform:scaleX(1);
+	/* 重点 */
+	transform-origin:0 0;
+	/* 重点 */
+}
+/* 拓展1
+  --------------------------------------------------*/
+  .nav04 {
+	width:100%;
+}
+.nav04 ul {
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+}
+.nav04 ul li {
+	position:relative;
+	width:300px;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#333;
+	cursor:pointer;
+}
+.nav04 ul li::before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:300px;
+	height:60px;
+	background:#FFE300;
+	z-index:-1;
+	/* 重点 */
+ 	transition:transform .5s;
+	/* 重点 */
+  	transform:scale3d(0,1,1);
+	/* 重点 */
+ 	transform-origin:100% 50%;
+	/* 重点 */
+}
+.nav04 ul li:hover {
+	color:#333;
+}
+.nav04 ul li:hover::before {
+	transform:scale3d(1,1,1);
+	/* 重点 */
+	  transform-origin:0 50%;
+	/* 重点 */
+	  transition-timing-function:ease-in;
+}
+/* 拓展2
+--------------------------------------------------*/
+.nav05 {
+	width:100%;
+}
+.nav05 ul {
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+}
+.nav05 ul li {
+	position:relative;
+	width:300px;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#333;
+	cursor:pointer;
+}
+.nav05 ul li::before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:300px;
+	height:60px;
+	background:#FFE300;
+	z-index:-1;
+	transition:transform .5s;
+	transform:scale3d(0,0,1);
+	/* 重点 */
+transform-origin:100% 100%;
+	/* 重点 */
+}
+.nav05 ul li:hover {
+	color:#333;
+}
+.nav05 ul li:hover::before {
+	transform:scale3d(1,1,1);
+	/* 重点 */
+  transform-origin:0 0;
+	/* 重点 */
+  transition-timing-function:ease-in;
+}
+/* 拓展3
+--------------------------------------------------*/
+.nav06 {
+	width:100%;
+	height:60px;
+	background:#333;
+}
+.nav06 ul {
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+	display:flex;
+}
+.nav06 ul li {
+	position:relative;
+	width:300px;
+	text-align:center;
+	line-height:60px;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	z-index:99;
+}
+.nav06 ul li::before {
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:300px;
+	height:60px;
+	background:#FFE300;
+	z-index:-1;
+	transition:transform .5s;
+	transform:scale3d(0,0,1);
+	/* 重点 */
+	transform-origin:50% 100%;
+	/* 重点 */
+}
+.nav06 ul li:hover {
+	color:#333;
+}
+.nav06 ul li:hover::before {
+	transform:scale3d(1,1,1);
+	/* 重点 */
+	transform-origin:50% 100%;
+	/* 重点 */
+	transition-timing-function:ease-out;
+}
+</style>
+</head>
+<body>
+<div class="nav01">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+
+<div class="nav02 top50">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+
+<div class="nav03 top50">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+
+<div class="nav04 top50">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+
+<div class="nav05 top50">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+
+<div class="nav06" style="margin: 100px auto;">
+    <ul>
+        <li>还原效果</li>
+        <li>线条运动</li>
+        <li>线条运动方向</li>
+        <li>拓展</li>
+    </ul>
+</div>
+
+<script>
+
+</script>
+<script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="../t3/ribbon.js"></script>
+</body>
+</html>
